@@ -26,6 +26,7 @@ pub fn run() {
 
     let mut sum: i32 = 0;
 
+    //getting the biggest from each group
     for group in groups {
         sum = sum.max(group.iter().sum())
     }
@@ -38,11 +39,14 @@ pub fn run() {
 pub fn run2() {
     let groups: Vec<Vec<i32>> = get_groups();
 
+    //getting the total for each group
     let mut total: Vec<i32> = groups.iter().map(|group|
         group.iter().sum()
     ).collect();
 
+    //sorting it
     total.sort();
+    //reverse it so the largest is at the beginning
     total.reverse();
 
     let sum: i32 = total.get(0..3).expect("Not enough elves").iter().sum();
